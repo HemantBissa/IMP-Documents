@@ -1,0 +1,304 @@
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Scanner;
+
+public class CodeTest {
+
+	@SuppressWarnings("unused")
+	public static void main(String[] args) {
+		
+		
+		/**Reverse String without InBuild Functions*/
+		
+		String original = "Ashapuramata", reverse = "";
+	    
+		/*Scanner in = new Scanner(System.in);
+	    System.out.println("Enter a string to reverse");
+	    original = in.nextLine();*/
+	   
+	    int length = original.length();
+	   
+	    for (int i = length - 1 ; i >= 0 ; i--) {
+	    	
+	    	reverse = reverse + original.charAt(i);
+	    }
+	       
+	    System.out.println("Reverse of the string: " + reverse);
+	    
+	    
+		/**Reverse String*/
+		
+	    /*String string = "AutomationTesting";
+	    String reverse1 = new StringBuffer(string).reverse().toString();
+	    System.out.println("\nString before reverse: "+string);
+	    System.out.println("String after reverse: "+reverse1);*/
+	    
+	    
+	    /**Binary to Decimal*/
+	    
+	    Scanner input = new Scanner( System.in );
+	    System.out.print("Enter a binary number: ");
+	    String binaryString =input.nextLine();
+	    System.out.println("Output: "+Integer.parseInt(binaryString, 2));
+	    
+	    
+	    /**To find Duplicate Characters*/
+	    
+	    System.out.print("Enter a desired string: ");
+	    String str = input.nextLine();
+	    //String str = "timesfortimes";
+	    
+	    int cnt = 0;
+	    char[] inp = str.toCharArray();
+	    
+	    System.out.println("Duplicate Characters are:");
+	    
+	    for (int i = 0; i < str.length(); i++) {
+	    	
+	     for (int j = i + 1; j < str.length(); j++) {
+	    	 
+	      if (inp[i] == inp[j]) {
+		       System.out.println(inp[j]);
+		       cnt++;
+		       break;
+	      }
+	    }
+	  }
+	    
+	    
+	    /**Armstrong Number*/
+	    
+	      int c = 0, a, temp;
+	      int m = 151;
+	      int n = m;
+	      temp = n;
+	      
+	      while (n > 0) {
+	    	  
+	         a = n % 10;
+	         n = n / 10;
+	         c = c + (a * a * a);
+	         
+	      }
+	      
+	      if (temp == c)
+	         System.out.println(m + " is an armstrong number");
+	      else
+	         System.out.println(m + " is not an armstrong number");
+	
+	      
+	
+	    /**To find First Non-Repeating Character in a string*/
+	
+	       String s = "hemantbissahemant";
+	       Map<Character, Integer> map = new LinkedHashMap<Character, Integer>();
+	       char c1[] = s.toCharArray();
+
+	       for (char ch : c1) {
+	    	   
+	           if (map.containsKey(ch)) {
+	        	   
+	               int count = map.get(ch);
+	               map.put(ch, count + 1);
+	               
+	           } else {
+	               map.put(ch, 1);
+	       }
+	     }
+	       
+	      /** It gives you the occurence of characters in a string
+	      */
+	       System.out.println(map);
+	       
+	       for (char ch : c1) {
+	           if (map.get(ch) == 1) {
+	        	   
+	              System.out.println("First non repeated characted in String \""+ s + "\" is:" + ch);
+	              break;
+	           }
+	       }
+	       
+	       
+	       /**Just for practice*/
+	       
+	       String givenString = "Hemant Bissa",reversedGivenString = "";
+	       String allParts[]=givenString.split(" ");
+	       System.out.println(allParts[0]);
+	       System.out.println(allParts[1]);
+	       
+	       for (int i=allParts[0].length()-1; i>=0; i--)
+	       {
+	    	   reversedGivenString = reversedGivenString + allParts[0].charAt(i);
+	       }
+	       
+	       System.out.println("Reverse String is: "+reversedGivenString);
+	       String completeString = reversedGivenString.concat(" "+allParts[1]);
+	       System.out.println("Complete Required String is: "+completeString);
+	       
+	       
+	       /**Palindrome Number*/
+	        
+	       /**First Way*/
+	       
+	        String reverseNumber = "";
+	        Scanner inputNumber = new Scanner(System.in);
+		    System.out.println("Enter a number : ");
+		    String originalNumber = inputNumber.nextLine();
+		   
+		    int lengthOfNumber = originalNumber.length();	
+		   
+		    for (int i = lengthOfNumber - 1 ; i >= 0 ; i--) {
+		    	
+		    	reverseNumber = reverseNumber + originalNumber.charAt(i);
+		    }
+		    
+		    if(originalNumber.equals(reverseNumber)) {
+		    	System.out.println(originalNumber + " is a palindrome number.");
+		    }
+		    else {
+		    	System.out.println(originalNumber + " is not a palindrome number.");
+		    }
+		    
+	       /**Second Way*/
+		    
+		    int r,sum=0,tep;    
+		    int no=454;//It is the number variable to be checked for palindrome
+		    tep=no;
+
+		    while(no>0) {
+		    	
+			     r=no%10;  //getting remainder  
+			     sum=(sum*10)+r;    
+			     no=no/10;    
+		     }
+		    
+		    if(tep==sum)    
+		     System.out.println(no +" is palindrome number.");    
+		    else    
+		     System.out.println(no +" is not palindrome number.");    
+		    
+		    
+		    /**Table code*/
+		    
+		    Scanner inpuNumber = new Scanner(System.in);
+		    System.out.println("Enter the number for generating table: ");
+		    String numberRequired = inpuNumber.nextLine();
+		    
+		    int i = Integer.parseInt(numberRequired);
+		    int z;
+		    
+		    for (int j=1; j<=10; j++) {
+		    	
+		    	z = i*j;
+		    	System.out.println(i + "*" + j + "=" + z);
+		    }
+		    
+		    
+		    /**Anagram Number*/
+		     
+		    String str1, str2;
+	        int len, len1, len2, j, found=0, not_found=0;
+	        Scanner scan = new Scanner(System.in);
+	        
+	        System.out.print("Enter First String : ");
+	        str1 = scan.nextLine();
+	        System.out.print("Enter Second String : ");
+	        str2 = scan.nextLine();
+	        
+	        len1 = str1.length();
+	        len2 = str2.length();
+			
+	        if(len1 == len2)
+	        {
+	            len = len1;
+	            for(i=0; i<len; i++)
+	            {
+	                found = 0;
+	                for(j=0; j<len; j++)
+	                {
+	                    if(str1.charAt(i) == str2.charAt(j))
+	                    {
+	                        found = 1;
+	                        break;
+	                    }
+	                }
+	                if(found == 0)
+	                {
+	                    not_found = 1;
+	                    break;
+	                }
+	            }
+	            if(not_found == 1)
+	            {
+	                System.out.print("Strings are not Anagram to Each Other..!!");
+	            }
+	            else
+	            {
+	                System.out.print("Strings are Anagram");
+	            }
+	        }
+	        else
+	        {
+	            System.out.print("Both Strings Must have the same number of Character to be an Anagram");
+	        }
+	       
+	        /**Largest and third largest number in array*/
+	        
+	        int temporary, size;
+	        int array[] = {10, 20, 25, 63, 96, 57};
+	        size = array.length;
+
+	        for(i = 0; i<size; i++ ) {
+	        	
+	           for(j = i+1; j<size; j++) {
+	        	   
+	              if(array[i]>array[j]) {
+	            	  
+	            	 temporary = array[i];
+	                 array[i] = array[j];
+	                 array[j] = temporary;
+	              }
+	           }
+	        }
+	        
+	        System.out.println("\nLargest number is:: " + array[size-1]);
+	        
+	        System.out.println("Third largest number is:: " + array[size-3]);
+	        
+	        
+	        /**Swapping of two numbers*/
+	        
+	        int x = 20;
+	        int y = 30;
+	        
+	        System.out.println("Before swap:");
+	        System.out.println("x value: "+x);
+	        System.out.println("y value: "+y);
+	        
+	        x = x+y;
+	        y = x-y;
+	        x = x-y;
+	        
+	        System.out.println("After swap:");
+	        System.out.println("x value: "+x);
+	        System.out.println("y value: "+y);
+	        
+	        
+	        /**Fibonacci Series*/
+	        
+	        int n1=0,n2=1,n3,count=10;    
+	        System.out.print(n1+" "+n2);//printing 0 and 1    
+	           
+	        for(i=2; i<count; ++i) { //loop starts from 2 because 0 and 1 are already printed
+	        	
+	         n3=n1+n2;    
+	         System.out.print(" "+n3);    
+	         n1=n2;    
+	         n2=n3;
+	         
+	        }
+	        
+	}
+}
